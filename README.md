@@ -270,8 +270,6 @@ Since there are many files in the project due to the boilerplate. I will only fo
 │   ├── src
 │   │   ├── modules
 │   │   │   ├── leaderboard
-│   │   │   │   ├── init-leaderboard.service.ts # init the leaderboard data in redis first time we run the app
-│   │   │   │   ├── leadeboard.repository.ts
 │   │   │   │   ├── leaderboard-initialization.cron.ts # lazily fills the leaderboard data in redis
 │   │   │   │   ├── leaderboard.controller.ts # Rest API controller
 │   │   │   │   └── leaderboard.service.ts # File processes the main logic for leaderboard
