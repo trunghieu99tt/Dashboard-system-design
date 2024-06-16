@@ -1,0 +1,9 @@
+DROP TABLE "user";
+DROP INDEX "public"."IDX_ec699039e231a0dcc9ae8cabb4";
+DROP INDEX "public"."IDX_b53877b4abec103eb6ee554744";
+DROP TABLE "user_score";
+DROP TABLE "quiz";
+DROP TABLE "user_score_event";
+DROP TYPE "public"."user_score_event_event_type_enum";
+DROP TYPE "public"."user_score_event_status_enum";
+DROP TYPE "public"."quiz_status_enum";

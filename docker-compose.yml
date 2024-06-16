@@ -1,0 +1,103 @@
+version: '3.8'
+
+services:
+  quiz-service:
+    container_name: quiz-service
+    build:
+      context: ./quiz-service
+      dockerfile: ./Dockerfile.quiz
+    ports:
+      - "3000:3000"
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_USER: ${DB_USER}
+      DB_PASS: ${DB_PASS}
+      DB_NAME: ${DB_NAME}
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+    networks:
+      - shared-network
+
+  # init-db:
+  #   container_name: init-db
+  #   build:
+  #     context: ./quiz-service
+  #     dockerfile: ./Dockerfile.quiz
+  #   entrypoint: ["sh", "-c", "node dist/src/main.js && yarn typeorm migration:run && yarn console seed:run"]
+  #   environment:
+  #     DB_HOST: db
+  #     DB_PORT: 5432
+  #     DB_USER: ${DB_USER}
+  #     DB_PASS: ${DB_PASS}
+  #     DB_NAME: ${DB_NAME}
+  #     REDIS_HOST: redis
+  #     REDIS_PORT: 6379
+  #   depends_on:
+  #     - db
+  #   networks:
+  #     - network 
+  #   healthcheck:
+  #     test: "exit 0"
+
+  leaderboard-service:
+    container_name: leaderboard-service
+    restart: on-failure
+    build:
+      context: ./leaderboard-service
+      dockerfile: ./Dockerfile.leaderboard
+    ports:
+    - "3001:3001"
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_USER: ${DB_USER}
+      DB_PASS: ${DB_PASS}
+      DB_NAME: ${DB_NAME}
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+    networks:
+      - shared-network
+  
+  # flyway:
+  #   container_name: flyway
+  #   image: flyway/flyway:latest
+  #   command: -url=jdbc:postgresql://localhost:5432/leaderboard -user=root -password=root -locations=filesystem:/flyway/sql migrate
+  #   volumes:
+  #     - ./sql:/flyway/migrate
+  #   depends_on:
+  #     - db
+  
+  # db:
+  #   container_name: db
+  #   image: postgres:13
+  #   ports:
+  #     - 5432:5432
+  #   volumes:
+  #     - dbdata:/var/lib/postgresql/data
+  #   environment:
+  #     POSTGRES_DB: ${DB_NAME}
+  #     POSTGRES_USER: ${DB_USER}
+  #     POSTGRES_PASSWORD: ${DB_PASS}
+  #   networks:
+  #     - network
+      
+  # redis:
+  #   container_name: redis
+  #   image: redis:7.2.3-alpine3.18
+  #   ports:
+  #     - 6379:6379
+  #   volumes:
+  #     - redisdata:/data
+  #   networks:
+  #     - network
+
+volumes:
+  node_modules:
+  # dbdata:
+  # redisdata:
+
+networks:
+  shared-network:
+    name: shared-network
+    external: true

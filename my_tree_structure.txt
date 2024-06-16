@@ -1,0 +1,142 @@
+.
+├── README.md
+├── docker-compose.env.yml
+├── docker-compose.yml
+├── flyway
+│   ├── migrate
+│   │   ├── V1__init.sql
+│   │   └── V2__seed.sql
+│   └── undo
+│       └── U1__revert_init.sql
+├── images
+│   ├── db-model.png
+│   └── system-architect.png
+├── leaderboard-service
+│   ├── Dockerfile.leaderboard
+│   ├── README.md
+│   ├── nest-cli.json
+│   ├── package.json
+│   ├── src
+│   │   ├── AppModule.ts
+│   │   ├── app.controller.spec.ts
+│   │   ├── app.controller.ts
+│   │   ├── app.module.ts
+│   │   ├── app.service.ts
+│   │   ├── main.ts
+│   │   ├── modules
+│   │   │   ├── leaderboard
+│   │   │   │   ├── InitLeaderBoardService.ts
+│   │   │   │   ├── constants
+│   │   │   │   │   └── leaderboard.const.ts
+│   │   │   │   ├── dto
+│   │   │   │   │   ├── get-leader-board-output.dto.ts
+│   │   │   │   │   └── get-leader-board-query.dto.ts
+│   │   │   │   ├── init-leaderboard.service.ts
+│   │   │   │   ├── leadeboard.repository.ts
+│   │   │   │   ├── leaderboard-initialization.cron.ts
+│   │   │   │   ├── leaderboard.controller.ts
+│   │   │   │   ├── leaderboard.module.ts
+│   │   │   │   └── leaderboard.service.ts
+│   │   │   ├── quiz
+│   │   │   │   ├── quiz.entity.ts
+│   │   │   │   ├── quiz.enum.ts
+│   │   │   │   └── quiz.repository.ts
+│   │   │   ├── user
+│   │   │   │   ├── user.entity.ts
+│   │   │   │   └── user.repository.ts
+│   │   │   ├── user-score
+│   │   │   │   ├── user-score.entity.ts
+│   │   │   │   └── user-score.repository.ts
+│   │   │   └── user-score-event
+│   │   │       ├── user-score-event.consumer.ts
+│   │   │       ├── user-score-event.entity.ts
+│   │   │       ├── user-score-event.enum.ts
+│   │   │       ├── user-score-event.module.ts
+│   │   │       └── user-score-event.repository.ts
+│   │   └── shared
+│   │       ├── configs
+│   │       │   ├── configuration.ts
+│   │       │   └── module-options.ts
+│   │       ├── constants
+│   │       │   └── queue.const.ts
+│   │       ├── database
+│   │       │   └── database.module.ts
+│   │       ├── dto
+│   │       │   ├── base-api-response.dto.ts
+│   │       │   └── pagination-params.dto.ts
+│   │       ├── entity
+│   │       │   └── base.entity.ts
+│   │       ├── redis
+│   │       │   ├── redis.module.ts
+│   │       │   └── redis.service.ts
+│   │       └── shared.module.ts
+│   ├── test
+│   │   ├── app.e2e-spec.ts
+│   │   └── jest-e2e.json
+│   ├── tsconfig.build.json
+│   ├── tsconfig.json
+│   └── yarn.lock
+├── my_tree_structure.txt
+└── quiz-service
+    ├── Dockerfile.quiz
+    ├── README.md
+    ├── migrations
+    │   └── 1718554545663-InitTables.ts
+    ├── nest-cli.json
+    ├── ormconfig.js
+    ├── package.json
+    ├── src
+    │   ├── app.controller.spec.ts
+    │   ├── app.controller.ts
+    │   ├── app.module.ts
+    │   ├── app.service.ts
+    │   ├── main.ts
+    │   ├── modules
+    │   │   ├── quiz
+    │   │   │   ├── quiz.entity.ts
+    │   │   │   ├── quiz.enum.ts
+    │   │   │   └── quiz.repository.ts
+    │   │   ├── user
+    │   │   │   ├── user.entity.ts
+    │   │   │   └── user.repository.ts
+    │   │   ├── user-score
+    │   │   │   ├── dto
+    │   │   │   │   └── update-user-score-input.dto.ts
+    │   │   │   ├── user-score.controller.ts
+    │   │   │   ├── user-score.entity.ts
+    │   │   │   ├── user-score.module.ts
+    │   │   │   ├── user-score.repository.ts
+    │   │   │   └── user-score.service.ts
+    │   │   └── user-score-event
+    │   │       ├── user-score-event.cron.ts
+    │   │       ├── user-score-event.entity.ts
+    │   │       ├── user-score-event.enum.ts
+    │   │       ├── user-score-event.module.ts
+    │   │       └── user-score-event.repository.ts
+    │   └── shared
+    │       ├── configs
+    │       │   ├── configuration.ts
+    │       │   └── module-options.ts
+    │       ├── constants
+    │       │   └── queue.const.ts
+    │       ├── database
+    │       │   └── database.module.ts
+    │       ├── dto
+    │       │   ├── base-api-response.dto.ts
+    │       │   └── pagination-params.dto.ts
+    │       ├── entity
+    │       │   └── base.entity.ts
+    │       ├── enum
+    │       │   └── status.enum.ts
+    │       ├── redis
+    │       │   ├── redis.module.ts
+    │       │   └── redis.service.ts
+    │       └── shared.module.ts
+    ├── test
+    │   ├── app.e2e-spec.ts
+    │   └── jest-e2e.json
+    ├── tsconfig.build.json
+    ├── tsconfig.json
+    └── yarn.lock
+
+41 directories, 99 files
